@@ -1,0 +1,37 @@
+{
+  "name": "illcoai-competitor-analysis",
+  "version": "1.0.0",
+  "description": "SEO-Enhanced Competitor Analysis System for ILLCOAI.COM - Analyzes 20 real service providers across 5 creative categories",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "build": "echo 'Static site - no build required'",
+    "start": "echo 'Static site deployed to Vercel'",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "competitor-analysis",
+    "seo-analysis",
+    "music-video-production",
+    "commercial-video",
+    "jingle-writing",
+    "logo-design",
+    "ai-creative-services",
+    "illcoai",
+    "creative-agency",
+    "video-production"
+  ],
+  "author": "ILLCOAI.COM",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/illcoai-competitor-analysis"
+  },
+  "homepage": "https://illcoai-competitor-analysis.vercel.app",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  }
+}

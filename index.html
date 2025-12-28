@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ILLCOAI.COM - SEO-Enhanced Competitor Analysis</title>
+    <meta name="description" content="Advanced competitor analysis with SEO intelligence for music video production, commercial videos, jingles, logo design, and AI creative services.">
+    <meta name="keywords" content="competitor analysis, SEO analysis, music video production, commercial video, jingle writing, logo design, AI creative services">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .service-tag {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            text-align: center;
+        }
+        
+        .main-content {
+            padding: 40px;
+        }
+        
+        .analysis-form {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 16px;
+            background: white;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group select:focus, .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .analyze-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+            width: 100%;
+        }
+        
+        .analyze-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .analyze-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .results-section {
+            margin-top: 30px;
+        }
+        
+        .competitor-card {
+            background: white;
+            border: 1px solid #e1e8ed;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+        
+        .competitor-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        
+        .competitor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .competitor-name {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .seo-score {
+            background: #27ae60;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        
+        .seo-score.medium {
+            background: #f39c12;
+        }
+        
+        .seo-score.low {
+            background: #e74c3c;
+        }
+        
+        .competitor-pricing {
+            background: #667eea;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+        
+        .seo-details {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .seo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .seo-metric {
+            text-align: center;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+        }
+        
+        .seo-metric-value {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .seo-metric-label {
+            font-size: 0.9em;
+            color: #5a6c7d;
+            margin-top: 5px;
+        }
+        
+        .recommendations {
+            margin-top: 15px;
+        }
+        
+        .recommendation {
+            background: white;
+            padding: 10px;
+            margin: 5px 0;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+        }
+        
+        .recommendation.high {
+            border-left-color: #e74c3c;
+        }
+        
+        .recommendation.medium {
+            border-left-color: #f39c12;
+        }
+        
+        .outranking-strategy {
+            background: #e8f5e8;
+            border: 2px solid #27ae60;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        
+        .strategy-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #27ae60;
+            margin-bottom: 15px;
+        }
+        
+        .strategy-section {
+            margin-bottom: 20px;
+        }
+        
+        .strategy-section h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .strategy-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .strategy-list li {
+            padding: 5px 0;
+            color: #2c3e50;
+        }
+        
+        .strategy-list li:before {
+            content: "🎯 ";
+            margin-right: 8px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #5a6c7d;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: 700;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            color: #5a6c7d;
+            margin-top: 5px;
+        }
+        
+        .toggle-details {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        
+        .toggle-details:hover {
+            background: #5a6fd8;
+        }
+        
+        .deployment-info {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            color: #0d47a1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .demo-data {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .github-link {
+            background: #24292e;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 5px;
+            font-weight: 600;
+        }
+        
+        .github-link:hover {
+            background: #1b1f23;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .vercel-deploy {
+            background: #000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 5px;
+            font-weight: 600;
+        }
+        
+        .vercel-deploy:hover {
+            background: #333;
+            color: white;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .competitor-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .seo-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎵 ILLCOAI.COM</h1>
+            <div class="subtitle">SEO-Enhanced Competitor Analysis - Outrank Your Competition</div>
+            <div class="services-grid">
+                <div class="service-tag">🎬 Music Videos</div>
+                <div class="service-tag">📺 Commercials</div>
+                <div class="service-tag">🎵 Jingles & Songs</div>
+                <div class="service-tag">🎨 Logo Design</div>
+                <div class="service-tag">🤖 AI Services</div>
+                <div class="service-tag">🔍 SEO Analysis</div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="deployment-info">
+                🚀 <strong>Vercel Deployment Ready!</strong> This system analyzes 20 real service providers with SEO intelligence. 
+                <br><br>
+                <a href="https://github.com/your-username/illcoai-competitor-analysis" class="github-link">📁 View on GitHub</a>
+                <a href="https://vercel.com/new/clone?repository-url=https://github.com/your-username/illcoai-competitor-analysis" class="vercel-deploy">▲ Deploy to Vercel</a>
+            </div>
+            
+            <div class="stats-grid" id="statsGrid">
+                <div class="stat-card">
+                    <div class="stat-number">20</div>
+                    <div class="stat-label">Service Providers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Service Categories</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">SEO</div>
+                    <div class="stat-label">Analysis Ready</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2024</div>
+                    <div class="stat-label">Latest Data</div>
+                </div>
+            </div>
+            
+            <div class="analysis-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="focusArea">🎯 Select Service Category:</label>
+                        <select id="focusArea">
+                            <option value="music_video_production">🎵 Music Video Production Companies</option>
+                            <option value="commercial_video_production">📺 Commercial Video Production Agencies</option>
+                            <option value="jingle_songwriting_services">🎼 Jingle & Songwriting Services</option>
+                            <option value="logo_branding_services">🎨 Logo & Branding Services</option>
+                            <option value="ai_creative_agencies">🤖 AI-Powered Creative Agencies</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="seoAnalysis">🔍 SEO Analysis:</label>
+                        <select id="seoAnalysis">
+                            <option value="basic">Basic Competitor Info</option>
+                            <option value="full">Full SEO Analysis + Outranking Strategy</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="analyze-btn" onclick="showDemoResults()" id="analyzeBtn">
+                    🔍 Analyze Competitors & SEO
+                </button>
+            </div>
+            
+            <div class="results-section" id="results">
+                <!-- Demo results will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Demo data for static deployment
+        const demoData = {
+            music_video_production: {
+                category_name: "Music Video Production Companies",
+                competitors: [
+                    {
+                        name: "ZANE Productions",
+                        description: "Full-service music video production company serving Los Angeles, New York City, and Chicago. Specializes in creative, award-winning music videos for musicians, artists, and music labels.",
+                        pricing: "$5,000 - $50,000+",
+                        location: "Los Angeles, NYC",
+                        service_type: "Full Production Company",
+                        website: "zane-productions.com",
+                        seo_analysis: {
+                            seo_score: 78,
+                            title: "Music Video Production Company | ZANE | Los Angeles, New York City",
+                            meta_description: "Discover a leading music video production company specializing in creative, award-winning music videos.",
+                            content_length: 2847,
+                            images: { total: 15, with_alt: 12 },
+                            recommendations: [
+                                { category: "Content", recommendation: "Add more location-specific content for better local SEO", priority: "High" },
+                                { category: "Technical", recommendation: "Optimize image loading speeds", priority: "Medium" }
+                            ]
+                        }
+                    },
+                    {
+                        name: "Augustus Films",
+                        description: "Professional music video production with over 20 years of experience. Works with top management companies, artists and labels including Justin Bieber, Lady Gaga, and more.",
+                        pricing: "$10,000 - $100,000+",
+                        location: "Los Angeles, Philadelphia, NYC",
+                        service_type: "Premium Production House",
+                        website: "augustusfilms.com",
+                        seo_analysis: {
+                            seo_score: 65,
+                            title: "Music Video Production Los Angeles - Augustus Films",
+                            meta_description: "Augustus Films has produced music video for over 20 years. Professional production and post services.",
+                            content_length: 1923,
+                            images: { total: 8, with_alt: 5 },
+                            recommendations: [
+                                { category: "Content", recommendation: "Expand content depth and add more service details", priority: "High" },
+                                { category: "SEO", recommendation: "Improve meta descriptions and title optimization", priority: "Medium" }
+                            ]
+                        }
+                    },
+                    {
+                        name: "Ezra Productions",
+                        description: "Award-winning, woman-owned creative agency and video production company based in Los Angeles and New York. Creates visually stunning, emotionally compelling content.",
+                        pricing: "$3,000 - $25,000",
+                        location: "Los Angeles, New York",
+                        service_type: "Creative Agency",
+                        website: "ezraproductions.com",
+                        seo_analysis: {
+                            seo_score: 72,
+                            title: "Commercial Video Production Company + Creative Agency | Los Angeles",
+                            meta_description: "Ezra Productions is an award-winning, woman-owned creative agency and video production company.",
+                            content_length: 2156,
+                            images: { total: 18, with_alt: 15 },
+                            recommendations: [
+                                { category: "Content", recommendation: "Add more music video specific content", priority: "Medium" },
+                                { category: "Technical", recommendation: "Improve site loading speed", priority: "High" }
+                            ]
+                        }
+                    },
+                    {
+                        name: "Freelance Music Video Directors",
+                        description: "Network of independent music video directors and videographers available for hire through platforms like Fiverr, Upwork, and Guru. Offers flexible pricing and creative approaches.",
+                        pricing: "$1,000 - $15,000",
+                        location: "Global (Remote)",
+                        service_type: "Freelance Network",
+                        website: "fiverr.com/categories/video-animation/music-videos",
+                        seo_analysis: {
+                            seo_score: 45,
+                            title: "Hire Music Video Directors Online - Fiverr",
+                            meta_description: "Find talented music video directors on Fiverr. Get professional music videos created by freelancers.",
+                            content_length: 1234,
+                            images: { total: 25, with_alt: 8 },
+                            recommendations: [
+                                { category: "Content", recommendation: "Create dedicated landing pages for music video services", priority: "High" },
+                                { category: "SEO", recommendation: "Optimize for local search terms", priority: "High" }
+                            ]
+                        }
+                    }
+                ]
+            },
+            commercial_video_production: {
+                category_name: "Commercial Video Production Agencies",
+                competitors: [
+                    {
+                        name: "Vidico",
+                        description: "Award-winning video production company creating high-quality commercial videos, explainer videos, and branded content for businesses worldwide.",
+                        pricing: "$3,000 - $50,000+",
+                        location: "Global (Remote)",
+                        service_type: "Digital Agency",
+                        website: "vidico.com",
+                        seo_analysis: {
+                            seo_score: 85,
+                            title: "Video Production Company | Award-Winning Video Marketing | Vidico",
+                            meta_description: "Award-winning video production company creating commercial videos, explainer videos, and branded content.",
+                            content_length: 3456,
+                            images: { total: 22, with_alt: 20 },
+                            recommendations: [
+                                { category: "Content", recommendation: "Add more case studies and client testimonials", priority: "Medium" },
+                                { category: "Technical", recommendation: "Implement structured data markup", priority: "Low" }
+                            ]
+                        }
+                    },
+                    {
+                        name: "Bonomotion",
+                        description: "Miami-based video production company offering end-to-end video production services with cinematic quality using latest camera technology and professional crews.",
+                        pricing: "$5,000 - $100,000+",
+                        location: "Miami, Florida",
+                        service_type: "Full Production House",
+                        website: "bonomotion.com",
+                        seo_analysis: {
+                            seo_score: 68,
+                            title: "Video Production Company Miami | Bonomotion",
+                            meta_description: "Miami video production company offering professional video production services with cinematic quality.",
+                            content_length: 2789,
+                            images: { total: 16, with_alt: 12 },
+                            recommendations: [
+                                { category: "Content", recommendation: "Expand service descriptions and add more location pages", priority: "High" },
+                                { category: "Technical", recommendation: "Optimize video loading and compression", priority: "Medium" }
+                            ]
+                        }
+                    }
+                ]
+            },
+            jingle_songwriting_services: {
+                category_name: "Jingle & Songwriting Services",
+                competitors: [
+                    {
+                        name: "Write Me A Jingle",
+                        description: "Custom, high-quality jingles for businesses of all sizes. Creative partnership of two lifelong musicians creating original music and lyrics that reflect brand identity.",
+                        pricing: "$2,500+",
+                        location: "Remote",
+                        service_type: "Professional Jingle Studio",
+                        website: "writemeajingle.com",
+                        seo_analysis: {
+                            seo_score: 76,
+                            title: "Write Me A Jingle - Custom Jingles for Your Business",
+                            meta_description: "We create custom, high-quality jingles for businesses of all sizes. Professional music and lyrics.",
+                            content_length: 2134,
+                            images: { total: 8, with_alt: 7 },
+                            recommendations: [
+                                { category: "Content", recommendation: "Add more industry-specific jingle examples", priority: "Medium" },
+                                { category: "SEO", recommendation: "Target more long-tail keywords", priority: "Medium" }
+                            ]
+                        }
+                    },
+                    {
+                        name: "APPWT Jingle Creation",
+                        description: "Professional jingle creation services starting at $497 for 15-30 second jingles with original music, catchy lyrics, and commercial rights included.",
+                        pricing: "$297 - $997",
+                        location: "Remote",
+                        service_type: "Digital Jingle Service",
+                        website: "appwt.com/services/jingle-creation",
+                        seo_analysis: {
+                            seo_score: 58,
+                            title: "Custom Jingle Creation Services | APPWT",
+                            meta_description: "Custom jingle creation starts at $497 for professional jingles with original music and commercial rights.",
+                            content_length: 1567,
+                            images: { total: 4, with_alt: 2 },
+                            recommendations: [
+                                { category: "Content", recommendation: "Add more detailed service descriptions and examples", priority: "High" },
+                                { category: "Technical", recommendation: "Improve page loading speed and mobile optimization", priority: "High" }
+                            ]
+                        }
+                    }
+                ]
+            },
+            logo_branding_services: {
+                category_name: "Logo & Branding Services",
+                competitors: [
+                    {
+                        name: "Logoworks",
+                        description: "Professional logo and graphic design services with fixed pricing and dedicated project managers. Offers affordable logo design for businesses of all sizes.",
+                        pricing: "$299 - $2,999+",
+                        location: "Remote",
+                        service_type: "Design Agency",
+                        website: "logoworks.com",
+                        seo_analysis: {
+                            seo_score: 71,
+                            title: "Professional Logo and Graphic Design Pricing | Logoworks",
+                            meta_description: "Professional logo and graphic design should be affordable. Fixed pricing and dedicated project manager.",
+                            content_length: 2456,
+                            images: { total: 12, with_alt: 10 },
+                            recommendations: [
+                                { category: "Content", recommendation: "Add more portfolio examples and case studies", priority: "Medium" },
+                                { category: "SEO", recommendation: "Optimize for local business searches", priority: "Medium" }
+                            ]
+                        }
+                    },
+                    {
+                        name: "Spacekit",
+                        description: "Professional brand design services with brand kits starting at $240. Offers startup logos to complete corporate identity systems with 48-hour delivery.",
+                        pricing: "$240 - $5,000+",
+                        location: "Remote",
+                        service_type: "Brand Design Studio",
+                        website: "spacekit.io",
+                        seo_analysis: {
+                            seo_score: 64,
+                            title: "Professional Brand Design Services - Spacekit",
+                            meta_description: "Professional brand kits starting at $240. From startup logos to complete corporate identity systems.",
+                            content_length: 1834,
+                            images: { total: 15, with_alt: 8 },
+                            recommendations: [
+                                { category: "Content", recommendation: "Expand service descriptions and add pricing calculator", priority: "High" },
+                                { category: "Technical", recommendation: "Improve site structure and navigation", priority: "Medium" }
+                            ]
+                        }
+                    }
+                ]
+            },
+            ai_creative_agencies: {
+                category_name: "AI-Powered Creative Agencies",
+                competitors: [
+                    {
+                        name: "Studio B Films",
+                        description: "AI video production company using generative models, traditional VFX workflows, and editorial expertise to create cinematic brand videos at unmatched speed and scale.",
+                        pricing: "$15,000 - $500,000+",
+                        location: "Remote",
+                        service_type: "AI Video Production",
+                        website: "studiobfilms.com",
+                        seo_analysis: {
+                            seo_score: 82,
+                            title: "Studio B Films | AI Video Production Company",
+                            meta_description: "AI video production company using generative models and VFX workflows for cinematic brand videos.",
+                            content_length: 3124,
+                            images: { total: 20, with_alt: 18 },
+                            recommendations: [
+                                { category: "Content", recommendation: "Add more AI technology explanations and case studies", priority: "Low" },
+                                { category: "Technical", recommendation: "Implement video schema markup", priority: "Medium" }
+                            ]
+                        }
+                    },
+                    {
+                        name: "351 Studio",
+                        description: "Leading AI video production agency delivering cinematic, generative AI videos, branded films, and post-production for brands worldwide using cutting-edge AI technology.",
+                        pricing: "$10,000 - $200,000+",
+                        location: "Remote",
+                        service_type: "AI Creative Agency",
+                        website: "351studio.com",
+                        seo_analysis: {
+                            seo_score: 79,
+                            title: "AI Video Production Agency | 351 Studio",
+                            meta_description: "Leading AI video production agency delivering cinematic, generative AI videos and branded films.",
+                            content_length: 2867,
+                            images: { total: 24, with_alt: 22 },
+                            recommendations: [
+                                { category: "Content", recommendation: "Add more detailed AI process explanations", priority: "Medium" },
+                                { category: "SEO", recommendation: "Target emerging AI video keywords", priority: "High" }
+                            ]
+                        }
+                    }
+                ]
+            }
+        };
+
+        const outrankingStrategy = {
+            content_strategy: {
+                recommendations: [
+                    "Create comprehensive service pages for each video production type (music videos, commercials, corporate videos)",
+                    "Develop location-specific landing pages for major markets (Los Angeles, New York, Chicago, Miami)",
+                    "Publish regular blog content about video production trends, behind-the-scenes content, and industry insights",
+                    "Create detailed case studies showcasing successful projects with before/after metrics",
+                    "Develop resource pages with video production guides, pricing calculators, and planning tools"
+                ]
+            },
+            technical_seo: {
+                recommendations: [
+                    "Implement video schema markup for better search visibility of video content",
+                    "Optimize page loading speeds, especially for video-heavy pages",
+                    "Create XML sitemaps for video content and submit to search engines",
+                    "Implement proper heading structure (H1, H2, H3) throughout all pages",
+                    "Ensure mobile responsiveness and fast loading on all devices"
+                ]
+            },
+            keyword_strategy: {
+                recommendations: [
+                    "Target long-tail keywords like 'music video production Los Angeles' and 'commercial video production services'",
+                    "Focus on service + location combinations for local SEO dominance",
+                    "Create content around 'AI video production' and 'Sora AI video creation' for emerging trends",
+                    "Target comparison keywords like 'best music video production companies'",
+                    "Optimize for voice search queries related to video production services"
+                ]
+            },
+            competitor_analysis: {
+                opportunities: [
+                    { recommendation: "Most competitors lack comprehensive AI video production content - major opportunity" },
+                    { recommendation: "Limited local SEO optimization among competitors - focus on location-based content" },
+                    { recommendation: "Few competitors have detailed pricing information - transparency could be a differentiator" },
+                    { recommendation: "Weak social proof and case studies among competitors - showcase your work prominently" }
+                ]
+            }
+        };
+        
+        function showDemoResults() {
+            const focusArea = document.getElementById('focusArea').value;
+            const seoAnalysis = document.getElementById('seoAnalysis').value;
+            const resultsDiv = document.getElementById('results');
+            const analyzeBtn = document.getElementById('analyzeBtn');
+            
+            resultsDiv.innerHTML = '<div class="loading">🔍 Analyzing competitors and SEO strategies...</div>';
+            analyzeBtn.disabled = true;
+            analyzeBtn.textContent = '🔄 Analyzing...';
+            
+            setTimeout(() => {
+                const data = demoData[focusArea] || demoData.music_video_production;
+                
+                if (seoAnalysis === 'full') {
+                    displaySEOResults(data);
+                } else {
+                    displayBasicResults(data);
+                }
+                
+                analyzeBtn.disabled = false;
+                analyzeBtn.textContent = '🔍 Analyze Competitors & SEO';
+            }, 1500);
+        }
+        
+        function displayBasicResults(data) {
+            const resultsDiv = document.getElementById('results');
+            
+            let html = `
+                <div class="demo-data">
+                    📊 <strong>Demo Data:</strong> This shows sample competitor analysis. The full system provides real-time data for all 20 service providers.
+                </div>
+                <h2>📊 Basic Competitor Analysis</h2>
+                <p style="margin-bottom: 20px; color: #5a6c7d;">
+                    Found <strong>${data.competitors.length}</strong> service providers in 
+                    <strong>${data.category_name}</strong>
+                </p>`;
+            
+            data.competitors.forEach(competitor => {
+                html += `
+                    <div class="competitor-card">
+                        <div class="competitor-header">
+                            <div class="competitor-name">${competitor.name}</div>
+                            <div class="competitor-pricing">${competitor.pricing}</div>
+                        </div>
+                        <div style="color: #5a6c7d; margin-bottom: 15px;">${competitor.description}</div>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px;">
+                            <div style="background: #f8f9fa; padding: 5px 10px; border-radius: 15px; font-size: 0.8em; text-align: center;">📍 ${competitor.location}</div>
+                            <div style="background: #f8f9fa; padding: 5px 10px; border-radius: 15px; font-size: 0.8em; text-align: center;">🏢 ${competitor.service_type}</div>
+                            <div style="background: #f8f9fa; padding: 5px 10px; border-radius: 15px; font-size: 0.8em; text-align: center;">🌐 ${competitor.website}</div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            resultsDiv.innerHTML = html;
+        }
+        
+        function displaySEOResults(data) {
+            const resultsDiv = document.getElementById('results');
+            
+            let html = `
+                <div class="demo-data">
+                    🔍 <strong>SEO Demo:</strong> This shows sample SEO analysis. The full system scrapes live competitor websites for real-time SEO intelligence.
+                </div>
+                <h2>🔍 SEO-Enhanced Competitor Analysis</h2>
+                <p style="margin-bottom: 20px; color: #5a6c7d;">
+                    Analyzed <strong>${data.competitors.length}</strong> competitors with full SEO analysis
+                </p>`;
+            
+            // Display outranking strategy
+            html += generateOutrankingStrategyHTML(outrankingStrategy);
+            
+            // Display competitor details
+            data.competitors.forEach(competitor => {
+                const seoScore = competitor.seo_analysis ? competitor.seo_analysis.seo_score : 0;
+                const scoreClass = seoScore >= 70 ? 'high' : seoScore >= 40 ? 'medium' : 'low';
+                
+                html += `
+                    <div class="competitor-card">
+                        <div class="competitor-header">
+                            <div class="competitor-name">${competitor.name}</div>
+                            <div style="display: flex; align-items: center; flex-wrap: wrap;">
+                                <div class="seo-score ${scoreClass}">SEO: ${seoScore}/100</div>
+                                <div class="competitor-pricing">${competitor.pricing}</div>
+                            </div>
+                        </div>
+                        <div style="color: #5a6c7d; margin-bottom: 15px;">${competitor.description}</div>
+                        
+                        ${competitor.seo_analysis ? generateSEODetailsHTML(competitor.seo_analysis) : '<p style="color: #e74c3c;">SEO analysis failed for this competitor</p>'}
+                    </div>
+                `;
+            });
+            
+            resultsDiv.innerHTML = html;
+        }
+        
+        function generateSEODetailsHTML(seoAnalysis) {
+            return `
+                <div class="seo-details">
+                    <div class="seo-grid">
+                        <div class="seo-metric">
+                            <div class="seo-metric-value">${seoAnalysis.title ? seoAnalysis.title.length : 0}</div>
+                            <div class="seo-metric-label">Title Length</div>
+                        </div>
+                        <div class="seo-metric">
+                            <div class="seo-metric-value">${seoAnalysis.meta_description ? seoAnalysis.meta_description.length : 0}</div>
+                            <div class="seo-metric-label">Meta Desc Length</div>
+                        </div>
+                        <div class="seo-metric">
+                            <div class="seo-metric-value">${seoAnalysis.content_length || 0}</div>
+                            <div class="seo-metric-label">Content Length</div>
+                        </div>
+                        <div class="seo-metric">
+                            <div class="seo-metric-value">${seoAnalysis.images ? seoAnalysis.images.total : 0}</div>
+                            <div class="seo-metric-label">Images</div>
+                        </div>
+                    </div>
+                    
+                    ${seoAnalysis.recommendations && seoAnalysis.recommendations.length > 0 ? `
+                        <div class="recommendations">
+                            <h4>🎯 SEO Recommendations:</h4>
+                            ${seoAnalysis.recommendations.map(rec => `
+                                <div class="recommendation ${rec.priority.toLowerCase()}">
+                                    <strong>${rec.category}:</strong> ${rec.recommendation}
+                                </div>
+                            `).join('')}
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+        }
+        
+        function generateOutrankingStrategyHTML(strategy) {
+            return `
+                <div class="outranking-strategy">
+                    <div class="strategy-title">🚀 Your Outranking Strategy</div>
+                    
+                    <div class="strategy-section">
+                        <h4>📈 Content Strategy</h4>
+                        <ul class="strategy-list">
+                            ${strategy.content_strategy.recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div class="strategy-section">
+                        <h4>🔧 Technical SEO</h4>
+                        <ul class="strategy-list">
+                            ${strategy.technical_seo.recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div class="strategy-section">
+                        <h4>🎯 Keyword Strategy</h4>
+                        <ul class="strategy-list">
+                            ${strategy.keyword_strategy.recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                        </ul>
+                    </div>
+                    
+                    ${strategy.competitor_analysis.opportunities.length > 0 ? `
+                        <div class="strategy-section">
+                            <h4>💡 Key Opportunities</h4>
+                            <ul class="strategy-list">
+                                ${strategy.competitor_analysis.opportunities.map(opp => `<li>${opp.recommendation}</li>`).join('')}
+                            </ul>
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+        }
+        
+        // Auto-load demo on page load
+        window.onload = function() {
+            showDemoResults();
+        };
+    </script>
+</body>
+</html>
